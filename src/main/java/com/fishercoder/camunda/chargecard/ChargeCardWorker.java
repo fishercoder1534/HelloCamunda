@@ -7,8 +7,7 @@ import java.util.logging.Logger;
 import org.camunda.bpm.client.ExternalTaskClient;
 
 /**
- * You can run this program and go to https://docs.camunda.org/get-started/quick-start/complete/ in your browser to see your first Camunda process instance!
- */
+ * Once you run this program, go to: http://localhost:8080/camunda/app/welcome/default/#!/login, use this user and password to login: demo, demo.*/
 public class ChargeCardWorker {
     private final static Logger LOGGER = Logger.getLogger(ChargeCardWorker.class.getName());
 
@@ -28,7 +27,7 @@ public class ChargeCardWorker {
                     String item = externalTask.getVariable("item");
                     Integer amount = externalTask.getVariable("amount");
 
-                    LOGGER.info("Charging credit card with an amount of '" + amount + "'€ for the item '" + item + "'...");
+                    LOGGER.info("Charging credit card with an amount of '" + amount + "'$ for the item '" + item + "'...");
 
                     try {
                         Desktop.getDesktop().browse(new URI("https://docs.camunda.org/get-started/quick-start/complete"));
