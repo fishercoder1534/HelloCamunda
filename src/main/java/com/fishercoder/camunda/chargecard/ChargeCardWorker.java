@@ -10,9 +10,10 @@ import org.camunda.bpm.client.ExternalTaskClient;
  * 1. Once you run this program, go to: http://localhost:8080/camunda/app/welcome/default/#!/login, use this user and password to login: demo, demo.
  * 2. After logging in, go to: http://localhost:8080/camunda/app/cockpit/default/#/dashboard, you should be able to see Payment Retrieval process on the dashboard if you followed along: https://docs.camunda.org/get-started/quick-start/service-task/
  * 3. You can call this process/service via curl or REST APIs:
- *    curl -H "Content-Type: application/json" -X POST -d '{"variables": {"amount": {"value":111,"type":"integer"}, "item": {"value":"item-xyz"} } }' http://localhost:8080/engine-rest/process-definition/key/payment-retrieval/start
+ *     ${PROCESS_DEFINITION} is the name you'll get from logging into your local Camunda cockpit, e.g. payment-retrieval
+ *    curl -H "Content-Type: application/json" -X POST -d '{"variables": {"amount": {"value":111,"type":"integer"}, "item": {"value":"item-xyz"} } }' http://localhost:8080/engine-rest/process-definition/key/${PROCESS_DEFINITION}/start
  *    or via REST API:
- *       with this endpoint: http://localhost:8080/engine-rest/process-definition/key/payment-retrieval/start
+ *       with this endpoint: http://localhost:8080/engine-rest/process-definition/key/${PROCESS_DEFINITION}/start
  *       HTTP Method: POST
  *       Body: {"variables":{"amount":{"value":222,"type":"integer"},"item":{"value":"item-xyz"}}}
  *    Once you invoke the endpoint via either of the above two methods, you can see logs print out like:
